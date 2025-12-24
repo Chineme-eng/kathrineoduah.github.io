@@ -1,3 +1,4 @@
+
 /* Typing effect */
 const text = [
   "I design experiences.",
