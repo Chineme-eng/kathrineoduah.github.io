@@ -1,30 +1,76 @@
-// Surprise button action
-const btn = document.getElementById("surpriseBtn");
+/* Typing effect */
+const text = [
+  "I design experiences.",
+  "I build creative projects.",
+  "I turn ideas into visuals."
+];
+let index = 0;
+let charIndex = 0;
+const typingEl = document.querySelector(".typing");
 
-btn.addEventListener("click", () => {
-  document.body.style.background =
-    `linear-gradient(120deg,
-      hsl(${Math.random() * 360}, 80%, 20%),
-      hsl(${Math.random() * 360}, 80%, 30%))`;
-  alert("✨ You just changed the vibe ✨");
+function type() {
+  if (charIndex < text[index].length) {
+    typingEl.textContent += text[index][charIndex];
+    charIndex++;
+    setTimeout(type, 80);
+  } else {
+    setTimeout(erase, 1500);
+  }
+}
+
+function erase() {
+  if (charIndex > 0) {
+    typingEl.textContent = text[index].slice(0, charIndex - 1);
+    charIndex--;
+    setTimeout(erase, 40);
+  } else {
+    index = (index + 1) % text.length;
+    setTimeout(type, 300);
+  }
+}
+type();
+
+/* Count-up stats */
+const counters = document.querySelectorAll("[data-count]");
+
+counters.forEach(counter => {
+  const update = () => {
+    const target = +counter.dataset.count;
+    const current = +counter.innerText;
+    const increment = Math.ceil(target / 100);
+
+    if (current < target) {
+      counter.innerText = current + increment;
+      setTimeout(update, 30);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  update();
 });
 
-// Scroll reveal animation
-const revealElements = document.querySelectorAll("section");
-
-window.addEventListener("scroll", () => {
-  revealElements.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      section.style.opacity = "1";
-      section.style.transform = "translateY(0)";
-    }
+/* Emoji click feedback */
+document.querySelectorAll(".emoji-row span").forEach(emoji => {
+  emoji.addEventListener("click", () => {
+    emoji.textContent = "💥";
+    setTimeout(() => location.reload(), 500);
   });
 });
 
-// Initial hidden state
-revealElements.forEach(section => {
-  section.style.opacity = "0";
-  section.style.transform = "translateY(60px)";
-  section.style.transition = "all 0.8s ease";
+/* Magnetic buttons */
+document.querySelectorAll(".magnetic").forEach(btn => {
+  btn.addEventListener("mousemove", e => {
+    const rect = btn.getBoundingClientRect();
+    btn.style.transform = `
+      translate(
+        ${(e.clientX - rect.left - rect.width / 2) / 8}px,
+        ${(e.clientY - rect.top - rect.height / 2) / 8}px
+      )
+    `;
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    btn.style.transform = "translate(0,0)";
+  });
 });
+
