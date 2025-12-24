@@ -5,62 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Your Name ✨</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Floating shapes -->
+  <!-- Floating background shapes -->
   <div class="floating circle"></div>
   <div class="floating square"></div>
-  <div class="floating triangle"></div>
+  <div class="floating blob"></div>
 
+  <!-- HERO -->
   <header class="hero">
-    <h1>Hi, I’m <span>Your Name</span> 👋</h1>
-    <p>I create things for the internet.</p>
-    <button id="surpriseBtn">Click me ✨</button>
+    <h1>Hi, I’m <span>Your Name</span></h1>
+
+    <!-- Typing text -->
+    <p class="typing"></p>
+
+    <!-- Magnetic buttons -->
+    <div class="hero-buttons">
+      <button class="magnetic">View My Work</button>
+      <button class="magnetic secondary">Surprise Me 👀</button>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="scroll-down">↓ scroll</div>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I’m a creative who loves design, photography, and building fun digital experiences.
-      Scroll around — there are surprises 👀
-    </p>
-  </section>
-
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="grid">
-      <div class="card">📸 Photography</div>
-      <div class="card">🎨 Design</div>
-      <div class="card">🎥 Video</div>
+  <!-- QUICK STATS -->
+  <section class="stats">
+    <div class="stat">
+      <h3 data-count="50">0</h3>
+      <p>Projects</p>
+    </div>
+    <div class="stat">
+      <h3 data-count="100">0</h3>
+      <p>Creative Ideas</p>
+    </div>
+    <div class="stat">
+      <h3 data-count="1000">0</h3>
+      <p>Hours Creating</p>
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Pictology</h3>
-        <p>A creative hub for artists.</p>
-      </div>
-      <div class="project">
-        <h3>Preset Shop</h3>
-        <p>Custom presets made with free tools.</p>
-      </div>
+  <!-- EMOJI REACTION BAR -->
+  <section class="reactions">
+    <p>How does this site make you feel?</p>
+    <div class="emoji-row">
+      <span>🔥</span>
+      <span>✨</span>
+      <span>😍</span>
+      <span>🤯</span>
+      <span>🎨</span>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Let’s create something cool.</p>
-    <div class="socials">
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Email</a>
+  <!-- ABOUT PREVIEW -->
+  <section class="about-preview">
+    <h2>What I Do</h2>
+    <div class="preview-cards">
+      <div class="preview">📸 Visual Storytelling</div>
+      <div class="preview">🎨 Design & Branding</div>
+      <div class="preview">🚀 Digital Projects</div>
     </div>
   </section>
 
